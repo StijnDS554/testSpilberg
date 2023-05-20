@@ -47,11 +47,20 @@ using (StreamReader file = new(filePath))
 
     Console.WriteLine("Program has finished, these are the found words in the input file with combinations.");
     int counter = 0;
-    words.OrderBy(x => x.FullWord);
+
+    Word lastResult = null;
+
     foreach (Word word in words)
     {
+        if (lastResult != null && lastResult.FullWord == word.FullWord)
+            words.Remove(word);
+        else
+        {
+            lastResult = word;
+        }
         if (word.Word1 == null || word.Word2 == null)
             return;
+
         Console.Write(word.FullWord + " : " + word.Word1 + " + " + word.Word2);
         counter++;
         if (counter == 1 )

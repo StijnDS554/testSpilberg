@@ -23,7 +23,7 @@ namespace testSpilberg
             {
                 for (int j = i + 1; j < words.Count; j++)
                 {
-                    if (words[i] + words[j] == FullWord)
+                    if (words[i] + words[j] == FullWord )
                     {
                         Word1 = words[i];
                         Word2 = words[j];
